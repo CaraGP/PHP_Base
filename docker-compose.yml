@@ -1,0 +1,21 @@
+version: "3"
+services:
+    app:
+        build: ./app
+        volumes:
+            - ./app/:/var/www/html/
+        ports:
+            - "8001:80"
+
+    database:
+        image: mysql:5
+        environment:
+            - MYSQL_ROOT_PASSWORD=lolspaz
+            - MYSQL_DATABASE=todolist
+            - MYSQL_USER=master
+            - MYSQL_PASSWORD=masteryolo
+        volumes:
+            - ./database/schema.sql:/docker-entrypoint-initdb.d/1_schema.sql
+            - ./database/fixtures.sql:/docker-entrypoint-initdb.d/2_fixtures.sql
+        ports:
+            - "3306:3306"
