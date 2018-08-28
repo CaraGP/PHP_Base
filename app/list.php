@@ -25,6 +25,7 @@ try{
             <th>Title</th>
             <th>Description</th>
             <th>Owner</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@ try{
         <td><?php echo $row["title"]; ?></td>
         <td><?php echo $row["description"]; ?></td>
         <td><?php echo $row["owner"]; ?></td>
+        <td><a href="update-single.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
     </tr>
     <?php endforeach; ?>
     </tbody>
