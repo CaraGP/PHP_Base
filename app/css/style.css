@@ -3,6 +3,11 @@ label {
 	margin: 5px 0;
 }
 
+.labelTag {
+    display: inline-block;
+    width: 100px;
+}
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
