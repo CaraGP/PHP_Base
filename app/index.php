@@ -1,12 +1,8 @@
-<?php
+<?php include "templates/header.php"; ?>
 
-try {
-    $dbh = new PDO('mysql:host=database;dbname=todolist', 'master', 'masteryolo');
-    foreach($dbh->query('SELECT * from todos') as $row) {
-        print_r($row);
-    }
-    $dbh = null;
-} catch (PDOException $e) {
-    print "Error!: " . $e->getMessage() . "<br/>";
-    die();
-}
+<ul>
+	<li><a href="create.php"><strong>Create</strong></a> - add a user</li>
+	<li><a href="list.php"><strong>List</strong></a> - find a user</li>
+</ul>
+
+<?php include "templates/footer.php"; ?>

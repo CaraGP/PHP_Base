@@ -1,31 +1,26 @@
-<html>
-<head>
-    <title>Create Todo list</title>
-</head>
-<body>
-<h1>Create Todo List</h1>
-    <form method="post" action="create.php">
-        <p>Deadline: </p>
-            <input name="deadline" type="date">
-        <p>Title: </p>
-            <input name="title" type="text">
-        <p>Description: </p>
-            <input name="description" type="text">
-        <p>Owner: </p>
-            <input name="owner" type="text">
+<?php include "templates/header.php"; ?>
+
+<h2>Add New</h2>
+    <form method="post">
+        <label for="deadline">Deadline:
+            <input name="deadline" type="date" id="deadline"></label>
+        <label for="title">Title:
+            <input name="title" type="text" id="title"></label>
+        <label for="description">Description:
+            <input name="description" type="text" id="description"></label>
+        <label for="owner">Owner:
+            <input name="owner" type="text" id="owner"></label>
      <br>
         <input type="submit" name="submit" value="submit">
     </form>
-</body>
-</html>
 
-<?
+<?php
 if(isset($_POST['submit'])){
     $deadline = $_POST['deadline'];
     $title = $_POST['title'];
     $description = $_POST['description'];
     $owner = $_POST['owner'];
-        //echo "you filled deadline $deadline <br> title $title <br> description $description <br> and owner $owner";
+
     //connect to database
     $dbh = new PDO('mysql:host=database;dbname=todolist', 'master', 'masteryolo');
     $query = "INSERT INTO todos (deadline, title, description, owner) VALUES ('$deadline', '$title', '$description', '$owner')";
@@ -37,3 +32,5 @@ if(isset($_POST['submit'])){
         echo var_dump($dbh->errorInfo());
     }
 }
+
+include "templates/footer.php"; ?>
