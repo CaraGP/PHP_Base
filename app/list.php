@@ -41,5 +41,7 @@ try{
     <?php endforeach; ?>
     </tbody>
 </table>
+<br>
+<a href="index.php">| Back to home |</a> <a href="create.php">| Create a new Todo |</a>
 
 <?php include "templates/footer.php"; ?>
