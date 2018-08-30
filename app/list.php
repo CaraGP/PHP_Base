@@ -18,9 +18,9 @@ try {
             echo "$sql <br> $error->getMessage()";
         }
 include "templates/header.php";
-<br>
+
 if (isset($_GET["deleted"])) echo "Todo successfully deleted";
-<br>
+
 ?>
 
 <h2>ToDo List</h2>
