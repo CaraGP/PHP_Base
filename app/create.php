@@ -1,24 +1,9 @@
-<?php include "templates/header.php"; ?>
-
-<h2>Add New</h2>
-    <form method="post">
-        <label><span class="labelTag">Deadline:</span>
-            <input name="deadline" type="date"></label>
-        <label><span class="labelTag">Title:</span>
-            <input name="title" type="text"></label>
-        <label><span class="labelTag">Description:</span>
-            <input name="description" type="text"></label>
-        <label><span class="labelTag">Owner:</span>
-            <input name="owner" type="text"></label>
-     <br>
-        <input type="submit" name="submit" value="submit">
-    </form>
-    <br>
-    <a href="index.php">| Back to home |</a> <a href="list.php">| View list of Todos |</a>
-
-<?php include "templates/footer.php"; ?>
-
 <?php
+
+/**
+ * Create a Todo
+ */
+
 if(isset($_POST['submit']))
     {
         $deadline       = $_POST['deadline'];
@@ -40,3 +25,25 @@ if(isset($_POST['submit']))
                 }
     }
 ?>
+
+<?php include "templates/header.php"; ?>
+
+<h2>Add New</h2>
+    <form method="post">
+        <label><span class="labelTag">Deadline:</span>
+            <input name="deadline" type="date"></label>
+        <label><span class="labelTag">Title:</span>
+            <input name="title" type="text"></label>
+        <label><span class="labelTag">Description:</span>
+            <input name="description" type="text"></label>
+        <label><span class="labelTag">Owner:</span>
+            <input name="owner" type="text"></label>
+     <br>
+        <input type="submit" name="submit" value="submit">
+    </form>
+
+<br>
+<a href="index.php">| Back to home |</a>
+<a href="list.php">| View list of Todos |</a>
+
+<?php include "templates/footer.php"; ?>

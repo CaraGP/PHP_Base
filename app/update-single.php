@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Update a Todo
+ */
+
 if (isset($_POST['submit']))
     {
         try {
@@ -21,6 +26,7 @@ if (isset($_POST['submit']))
 
             $statement = $dbh->prepare($sql);
             $result = $statement->execute($todo);
+
             if($result == false)
                 {
                     echo "This has failed";
@@ -42,8 +48,8 @@ if (isset($_GET['id']))
                 $statement->bindValue(':id', $id);
                 $statement->execute();
 
-                $todo = $statement->fetch(PDO::FETCH_ASSOC);
-                var_dump($todo);
+                $statement->fetch(PDO::FETCH_ASSOC);
+
             } catch(PDOException $error)
                 {
                     echo "$sql <br> $error->getMessage()";
@@ -74,6 +80,8 @@ if (isset($_GET['id']))
 </form>
 
 <br>
-<a href="index.php">| Back to home |</a> <a href="list.php">| View list of Todos |</a> <a href="create.php">| Create a new Todo |</a>
+<a href="index.php">| Back to home |</a>
+<a href="list.php">| View list of Todos |</a>
+<a href="create.php">| Create a new Todo |</a>
 
 <?php require "templates/footer.php"; ?>

@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * List all Todos
+ */
+
 try {
     $dbh = new PDO('mysql:host=database;dbname=todolist', 'master', 'masteryolo');
 
@@ -12,9 +17,11 @@ try {
         {
             echo "$sql <br> $error->getMessage()";
         }
+include "templates/header.php";
+<br>
+if (isset($_GET["deleted"])) echo "Todo successfully deleted";
+<br>
 ?>
-
-<?php include "templates/header.php"; ?>
 
 <h2>ToDo List</h2>
 
@@ -27,6 +34,7 @@ try {
             <th>Description</th>
             <th>Owner</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -38,12 +46,14 @@ try {
             <td><?php echo $row["description"]; ?></td>
             <td><?php echo $row["owner"]; ?></td>
             <td><a href="update-single.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
+            <td><a href="delete-single.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure?')">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
 <br>
-<a href="index.php">| Back to home |</a> <a href="create.php">| Create a new Todo |</a>
+<a href="index.php">| Back to home |</a>
+<a href="create.php">| Create a new Todo |</a>
 
 <?php include "templates/footer.php"; ?>
